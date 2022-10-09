@@ -1,25 +1,23 @@
-﻿@model IEnumerable<Keikobar.Models.Category>
-
+﻿@model IEnumerable<Keikobar.Models.ApplicationType>
 
 <div class="container p-3">
     <div class="row pt-4">
         <div class="col-6">
-            <h2 class="text-primary">Category List</h2>
+            <h2 class="text-primary">Applicaton Type List</h2>
         </div>
         <div class="col-6 text-right">
-            <a asp-controller="Category" asp-action="Create" class="btn btn-primary">Create New Category</a>
+            <a asp-controller="Application" asp-action="Create" class="btn btn-primary">Create New Application Type</a>
         </div>
     </div>
 
     <br/><br/>
 
-    @if(Model.Count() > 0)
+    @if (Model.Count() > 0)
     {
         <table class="table table-bordered table-striped" style="width: 100%">
             <thead>
             <tr>
-                <th>Category Name</th>
-                <th>Display Order</th>
+                <th class="col-6">Application Type Name</th>
                 <th></th>
             </tr>
             </thead>
@@ -27,8 +25,7 @@
             @foreach (var obj in Model)
             {
                 <tr>
-                    <th>@Html.DisplayFor(modelItem => obj.Name)</th>
-                    <th>@obj.DisplayOrder</th>
+                    <th class="text-monospace">@obj.Name</th>
                     <th></th>
                 </tr>
             }
@@ -39,6 +36,5 @@
     {
         <p>No Category exists.</p>
     }
-
 
 </div>
